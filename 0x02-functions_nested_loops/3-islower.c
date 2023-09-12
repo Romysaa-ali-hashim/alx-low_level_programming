@@ -2,6 +2,7 @@
 #include <ctype.h>
 /**
  * _islower - int _islower(int c)
+ * @c: int  to test.
  * Return: 1 (True) else 0 (False)
  */
 int _islower(int c)
