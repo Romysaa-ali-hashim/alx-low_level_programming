@@ -5,8 +5,11 @@
  *
  * Return: Always 0.
  */
-int main(void)
+void print_alphabet(void)
+	int i;
+	for (i=97;i <= 122;i++)
 {
-    print_alphabet();
-    return (0);
+	_putchar(i);
 }
+	_putchar(\n);
+    return (0);
