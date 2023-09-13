@@ -1,44 +1,68 @@
-#include <stdio.h>
+#include "main.h"
+
 /**
- * print_fib - prints the first 50 Fibonacci numbers,
- * starting with 1 and 2, followed by a new line.
- * @len: the length of with the fib sequance should print to.
+ * numLength - returns the length of string
  *
- * Return: void
- */
-void print_fib(int len)
+ * @num: operand number
+ *
+ * Return: number of digits
+*/
+
+int numLength(int num)
 {
-	unsigned int target, i;
+	int length = 0;
 
-	unsigned int former_l, former_r,;
-	unsigned int latter_l, latter_r;
-	unsigned int fib_l, fib_r;
-
-	f = 1;
-	l = 2;
-	target = len - 2;
-	for (i = 0 ; i < target ; i++)
+	if (!num)
+		return (1);
+	while (num)
 	{
-		fib = f + l;
-		printf("%d : ", i + 4);
-		printf("%.0Lf" , fib);
-		f = l;
-		l = fib;
-		if (i < target - 1)
-			printf("\n");
+		num = num / 10;
+		length += 1;
 	}
-	putchar('\n');
+
+	return (length);
 }
 
-
 /**
- * main - Entry point,
+ * main - Entry point
  *
+ * Description: prints the first 98 Fibonacci numbers
+ *	starting with 1 and 2 followed by a new line
  *
- * Return: Always 0 (sucess)
- */
+ * Return: Always 0 (Success)
+*/
+
 int main(void)
 {
-	print_fib(98);
+	int count, initial0s;
+	unsigned long f1 = 1, f2 = 2, sum, mx = 100000000, f1o = 0, f2o = 0, sumo = 0;
+
+	for (count = 1; count <= 98; count++)
+	{
+		if (f1o > 0)
+			printf("%lu", f1o);
+		initial0s = numLength(mx) - 1 - numLength(f1);
+
+		while (f1o > 0 && initial0s > 0)
+		{
+			printf("%d", 0);
+			initial0s--;
+		}
+
+		printf("%lu", f1);
+
+		sum = (f1 + f2) % mx;
+		sumo = f1o + f2o + (f1 + f2) / mx;
+		f1 = f2;
+		f1o = f2o;
+		f2 = sum;
+		f2o = sumo;
+
+		if (count != 98)
+			printf(", ");
+		else
+			printf("\n");
+	}
+
 	return (0);
 }}
