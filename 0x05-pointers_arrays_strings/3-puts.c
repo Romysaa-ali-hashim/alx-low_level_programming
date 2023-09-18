@@ -1,14 +1,16 @@
 #include "main.h"
+
 /**
- * _puts - minic the stdio version of puts
- * @str: the value to process to the stdout.
+ * _puts - prints a string to stdout
+ * @str: pointer to the string to print
  */
 void _puts(char *str)
 {
-	while (*str > 0)
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(*str);
-		str++;
+		_putchar(str[i]);
 	}
 	_putchar('\n');
 }
